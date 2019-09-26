@@ -1,0 +1,88 @@
+<style>
+    tr:hover{
+        background-color:beige;
+    }
+
+    th{
+        background-color: aliceblue;
+    }
+
+    button:hover{
+            background-color: beige;
+            color: black;
+        }
+
+    body{
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+</style>
+
+<body>
+    
+<div class="container">
+<div class="row">
+        <div style="margin-right: 50px;" class="col-md-5">
+<br>
+<h3>Add New Customer</h3>
+
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+    <input type="hidden" name="Customer_Id" #Customer_Id="ngModel" [(ngModel)]="service.formData.Customer_Id">
+    
+    <div class="form-group">
+        <input name="Customer_Name" #Customer_Name="ngModel" [(ngModel)]="service.formData.Customer_Name" 
+        class="form-control" placeholder="Customer Name" required>
+    </div>
+
+    <div class="form-group">
+        <input name="Address" #Address="ngModel" [(ngModel)]="service.formData.Address" 
+        class="form-control" placeholder="Address" required>
+    </div>
+
+    <div class="form-group">
+        <input name="Mobile" #Mobile="ngModel" [(ngModel)]="service.formData.Mobile" 
+        class="form-control" placeholder="Mobile" required>
+    </div>
+
+    <div class="form-group">
+        <input name="AllowDiscount" #AllowDiscount="ngModel" [(ngModel)]="service.formData.AllowDiscount" class="form-control" 
+        placeholder="Allow Discount" required>
+    </div>
+
+    <div class="form-group">
+            <input name="Total_Cradit" #Total_Cradit="ngModel" [(ngModel)]="service.formData.Total_Cradit" class="form-control" 
+            placeholder="Total Cradit" required>
+        </div>
+
+    <div class="form-group">
+        <button class="btn btn-success" type="submit">
+            ADD CUSTOMER
+        </button>
+    </div>
+</form>
+
+</div>
+    <div class="col-md-8">
+        <br>
+            <h3>Items Details</h3>
+                        
+            <table class="table table-hover">
+                <th>Customer ID</th>
+                <th>Customer Name</th>
+                <th>Address</th>
+                <th>Mobile No</th>
+                <th>Discount</th>
+                <th>Credit</th>
+                <tr *ngFor="let customers of service.list">
+                    <td>{{customers.Customer_Id}}</td>
+                    <td>{{customers.Customer_Name}}</td>
+                    <td>{{customers.Address}}</td>
+                    <td>{{customers.Mobile}}</td>
+                    <td>{{customers.AllowDiscount}}</td>
+                    <td>{{customers.Total_Cradit}}</td>
+                </tr>
+            </table>
+    </div>
+</div>
+</div>
+
+</body>

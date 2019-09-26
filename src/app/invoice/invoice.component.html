@@ -1,0 +1,81 @@
+<style>
+        tr:hover{
+            background-color:beige;
+        }
+    
+        th{
+            background-color: aliceblue;
+        }
+    
+        button:hover{
+                background-color: beige;
+                color: black;
+            }
+    
+        body{
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+    </style>
+    
+    <body>
+        
+    <div class="container">
+    <div class="row">
+            <div style="margin-right: 50px;" class="col-md-5">
+    <br>
+    <h3>Order Items</h3>
+    
+    <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+        <input type="hidden" name="Invoice_Id" #Invoice_Id="ngModel" [(ngModel)]="service.formDataItemB.Invoice_Id">
+        
+        <div class="form-group">
+        <select required class="custom-select" name="Customer_Id" #Customer_Id="ngModel" [(ngModel)]="service.formDataItemB.Customer_Id">
+          <option value="">Select Customer Id </option>
+          <option *ngFor="let customers of service.list">{{customers.Customer_Id}}</option>
+        </select>
+        </div>
+
+        <div class="form-group">
+            <select required class="custom-select"name="Item_Id" #Item_Id="ngModel" [(ngModel)]="service.formDataItemB.Item_Id" >
+                <option value="">Select Item Id</option>
+                <option *ngFor="let items of service.listItem">{{items.Item_Id}}</option>
+            </select>
+        </div>
+    
+        <div class="form-group">
+            <input name="Quanty" #Quanty="ngModel" [(ngModel)]="service.formDataItemB.Quanty" 
+            class="form-control" placeholder="Quantity" required>
+        </div>
+    
+        <div class="form-group">
+            <button class="btn btn-success" type="submit">
+                Order Now
+            </button>
+        </div>
+    </form>
+    
+    </div>
+        <div class="col-md-8">
+            <br>
+                <h3>Purches Details</h3>
+                            
+                <table class="table table-hover">
+                    <th>Invoice Id</th>
+                    <th>Customer Id</th>
+                    <th>Item Id</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <tr *ngFor="let pur of service.listInvoice">
+                        <td>{{pur.Invoice_Id}}</td>
+                        <td>{{pur.Customer_Id}}</td>
+                        <td>{{pur.Item_Id}}</td>
+                        <td>{{pur.Quanty}}</td>
+                        <!-- <td>{{pur.Quanty * items.Price}}</td> -->
+                    </tr>
+                </table>
+        </div>
+    </div>
+    </div>
+    
+    </body>
+    

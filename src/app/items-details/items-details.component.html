@@ -1,0 +1,82 @@
+<style>
+        tr:hover{
+            background-color:beige;
+        }
+    
+        th{
+            background-color: aliceblue;
+        }
+
+        button:hover{
+            background-color: beige;
+            color: black;
+        }
+
+        body{
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    </style>
+    
+    <body>
+        
+    
+    <div class="container">
+    <div class="row">
+            <div style="margin-right: 50px;" class="col-md-5">
+    <br>
+    <h3>Add New Items</h3>
+    
+    <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+        <input type="hidden" name="Item_Id" #Item_Id="ngModel" [(ngModel)]="service.formDataItem.Item_Id">
+        
+        <div class="form-group">
+            <input name="ItemName" #ItemName="ngModel" [(ngModel)]="service.formDataItem.ItemName" 
+            class="form-control" placeholder="Item Name" required>
+        </div>
+    
+        <div class="form-group">
+            <input name="Brand" #Brand="ngModel" [(ngModel)]="service.formDataItem.Brand" 
+            class="form-control" placeholder="Brand" required>
+        </div>
+    
+        <div class="form-group">
+            <input name="Cost" #Cost="ngModel" [(ngModel)]="service.formDataItem.Cost" 
+            class="form-control" placeholder="Cost" required>
+        </div>
+    
+        <div class="form-group">
+            <input name="Price" #Price="ngModel" [(ngModel)]="service.formDataItem.Price" class="form-control" 
+            placeholder="Price" required>
+        </div>
+    
+        <div class="form-group">
+            <button class="btn btn-success" type="submit">
+                ADD ITEM
+            </button>
+        </div>
+    </form>
+    
+    </div>
+        <div class="col-md-8">
+            <br>
+                <h3>Customers Details</h3>
+                            
+                <table class="table table-hover">
+                    <th>Item ID</th>
+                    <th>Item Name</th>
+                    <th>Brand</th>
+                    <th>Cost</th>
+                    <th>Price</th>
+                    <tr *ngFor="let items of service.listItem">
+                        <td>{{items.Item_Id}}</td>
+                        <td>{{items.ItemName}}</td>
+                        <td>{{items.Brand}}</td>
+                        <td>{{items.Cost}}</td>
+                        <td>{{items.Price}}</td>
+                    </tr>
+                </table>
+        </div>
+    </div>
+    </div>
+
+</body>
