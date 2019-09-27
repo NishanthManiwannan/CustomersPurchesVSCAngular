@@ -51,4 +51,5 @@ export class AllServicesService {
       .toPromise()
       .then(res => this.listInvoice = res as Invoice[])
   }
+  
 }

@@ -18,6 +18,7 @@ export class InvoiceComponent implements OnInit {
     this.service.refreshItemDetails();
   }
 
+  
   resetForm(form? : NgForm){
 
     if(form != null){
