@@ -16,6 +16,7 @@ export class InvoiceComponent implements OnInit {
     this.service.refreshItemBarrowedDetails();
     this.service.refreshList();
     this.service.refreshItemDetails();
+    this.service.refreshItemBarrowedDetailsTwo();
   }
 
   
@@ -28,19 +29,57 @@ export class InvoiceComponent implements OnInit {
     this.service.formDataItemB = {
       Invoice_Id : 0,
       Customer_Id : null,
-      Item_Id : null,
-      Quanty : null
+      Item_Id : '',
+      Quanty : null,
+      Price : null
     }
+
+    // this.service.formDateItem2 = {
+    //   Invoice_Id : 0,
+    //   Customer_Id : null,
+    //   Item_Id : null,
+    //   Quanty : null,
+    //   Price : null
+      
+    // }
+
+
   }
 
   onSubmit(form : NgForm){
-    this.service.postItemBorrowd(form.value).subscribe(
-      res => {
-        this.resetForm(form);
-      },
-      err => {
-        console.log(err)
-      }
+    if(this.service.formDataItemB.Quanty == 1 ){
+
+      this.service.postItemBorrowd(form.value).subscribe(
+        res => {
+          this.resetForm(form);
+        },
+        err => {
+          console.log(err)
+        }
     ) 
+    }else{
+      this.service.postItemBorrowdTwo(form.value).subscribe(
+        res => {
+          this.resetForm(form);
+        },
+        err => {
+          console.log(err)
+        }
+      )
+    }
+    
+ }
+
+ updatePrice(ctrl){
+  if(ctrl.selectedIndex == 0){
+    this.service.formDataItemB.Price = 0;
+  }else{
+    this.service.formDataItemB.Price = this.service.listItem[ctrl.selectedIndex - 1].Price;
+
+  }
+ }
+
+ updateTotol(){
+  this.service.formDataItemB.Price = this.service.formDataItemB.Quanty * this.service.formDataItemB.Price;
  }
 }

@@ -1,4 +1,5 @@
-export class Invoice {
+export class InvoiceTwo {
+
     Invoice_Id : number;
     Customer_Id : number;
     Item_Id : string;

@@ -15,19 +15,31 @@
         body{
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         }
+
+        #sigle{
+            background-color:rgb(214, 214, 214);
+            border-radius: 20px;
+            margin-left: 13px;
+        }
+
+        #duo{
+            border-radius: 20px;
+            background-color:rgb(214, 214, 214);
+            border: black thick none ;
+        }
     </style>
     
     <body>
         
     <div class="container">
     <div class="row">
-            <div style="margin-right: 50px;" class="col-md-5">
-    <br>
-    <h3>Order Items</h3>
+        <div style="margin-right: 50px;" class="col-md-6">
+        <br>
+        <h3>Order Items</h3>
     
-    <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
-        <input type="hidden" name="Invoice_Id" #Invoice_Id="ngModel" [(ngModel)]="service.formDataItemB.Invoice_Id">
-        
+        <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+            <input type="hidden" name="Invoice_Id" #Invoice_Id="ngModel" [(ngModel)]="service.formDataItemB.Invoice_Id">
+
         <div class="form-group">
         <select required class="custom-select" name="Customer_Id" #Customer_Id="ngModel" [(ngModel)]="service.formDataItemB.Customer_Id">
           <option value="">Select Customer Id </option>
@@ -36,45 +48,76 @@
         </div>
 
         <div class="form-group">
-            <select required class="custom-select"name="Item_Id" #Item_Id="ngModel" [(ngModel)]="service.formDataItemB.Item_Id" >
-                <option value="">Select Item Id</option>
-                <option *ngFor="let items of service.listItem">{{items.Item_Id}}</option>
+            <select required class="custom-select"name="Item_Id" #Item_Id="ngModel" [(ngModel)]="service.formDataItemB.Item_Id"
+            (change)="updatePrice($event.target)" >
+                <option value="0">Select Item</option>
+                <option *ngFor="let items of service.listItem">{{items.ItemName}}</option>
             </select>
         </div>
     
         <div class="form-group">
-            <input name="Quanty" #Quanty="ngModel" [(ngModel)]="service.formDataItemB.Quanty" 
-            class="form-control" placeholder="Quantity" required>
+            <input name="Quanty" #Quanty="ngModel" [(ngModel)]="service.formDataItemB.Quanty" (keyup)="updateTotol()"
+            class="form-control" placeholder="Quantity" type="number" required>
         </div>
 
         <div class="form-group">
-            <button class="btn btn-success" type="submit">
+                <input name="Price" #Price="ngModel" [(ngModel)]="service.formDataItemB.Price" 
+                class="form-control" placeholder="Price" type="number" required>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-success" type="submit" [disabled]="form.invalid">
                 ✔ Order Now
             </button>
         </div>
     </form>
     
     </div>
-        <div class="col-md-6.9">
-            <br>
-                <h3>Purches Details</h3>
+
+        <div id="duo" class="col-md-6">
+
+        <br>
+                <h3>Multipul Items purchased Details</h3>
                             
                 <table class="table table-hover">
                     <th>🧷 Invoice Id</th>
                     <th>Customer Id</th>
-                    <th>Item Id</th>
+                    <th>Item </th>
                     <th>Quantity</th>
                     <th>Price</th>
-                    <tr *ngFor="let pur of service.listInvoice">
+                    <tr *ngFor="let pur of service.listInvoiceTwo">
                         <td>{{pur.Invoice_Id}}</td>
                         <td>{{pur.Customer_Id}}</td>
                         <td>{{pur.Item_Id}}</td>
                         <td>{{pur.Quanty}}</td>
-                        <!-- <td>{{pur.Quanty * items.Price}}</td> -->
+                        <td>{{pur.Price}}</td>
                     </tr>
                 </table>
         </div>
+
+        <div id="sigle" class="col-md-5">
+                <br>
+                    <h3>Single Item purchased Details</h3>
+                                
+                    <table class="table table-hover">
+                        <th>🧷 Invoice Id</th>
+                        <th>Customer Id</th>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <tr *ngFor="let pur of service.listInvoice">
+                            <td>{{pur.Invoice_Id}}</td>
+                            <td>{{pur.Customer_Id}}</td>
+                            <td>{{pur.Item_Id}}</td>
+                            <td>{{pur.Quanty}}</td>
+                            <td>{{pur.Price}}</td>
+                        </tr>
+                    </table>
+    
+                    
+            </div>
     </div>
+
     </div>
 
     </body>

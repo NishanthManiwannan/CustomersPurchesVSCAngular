@@ -3,6 +3,7 @@ import { CustomersDetails } from './customers-details.model';
 import { HttpClient } from '@angular/common/http';
 import { ItemsDetails } from './items-details.model';
 import { Invoice } from './invoice.model';
+import { InvoiceTwo } from './invoice-two.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,16 +13,19 @@ export class AllServicesService {
   formData : CustomersDetails;
   formDataItem : ItemsDetails;
   formDataItemB : Invoice;
-
+  formDateItem2 : InvoiceTwo;
 
   list : CustomersDetails[];
   listItem : ItemsDetails[];
   listInvoice : Invoice[];
+  listInvoiceTwo : InvoiceTwo[];
+
 
   readonly rootUrl = 'http://localhost:54747/api';
 
   constructor(private http : HttpClient) { }
 
+  //Customer Details Post and get request
   postCustomerDetails(formData : CustomersDetails){
     return this.http.post(this.rootUrl+'/CustomerDetail',formData)
   }
@@ -32,6 +36,7 @@ export class AllServicesService {
       .then(res => this.list = res as CustomersDetails[])
   }
 
+  //Items Details Post and get request
   postItemsDetails(formDataItem : ItemsDetails){
     return this.http.post(this.rootUrl+'/ItemsDetail',formDataItem)
   }
@@ -42,6 +47,7 @@ export class AllServicesService {
       .then(res => this.listItem = res as ItemsDetails[])
   }
 
+  //Invoice Details Post and get request
   postItemBorrowd(formDataItemB : Invoice){
     return this.http.post(this.rootUrl+'/Invoice',formDataItemB)
   }
@@ -50,6 +56,17 @@ export class AllServicesService {
     this.http.get(this.rootUrl+'/Invoice')
       .toPromise()
       .then(res => this.listInvoice = res as Invoice[])
+  }
+
+   //InvoicTwo Details Post and get request
+   postItemBorrowdTwo(formDateItem : InvoiceTwo){
+    return this.http.post(this.rootUrl+'/InvoicTwo',formDateItem)
+  }
+
+  refreshItemBarrowedDetailsTwo(){
+    this.http.get(this.rootUrl+'/InvoicTwo')
+      .toPromise()
+      .then(res => this.listInvoiceTwo = res as InvoiceTwo[])
   }
   
 }
