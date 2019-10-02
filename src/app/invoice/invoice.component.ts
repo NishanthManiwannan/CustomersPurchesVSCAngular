@@ -9,6 +9,9 @@ import { NgForm } from '@angular/forms';
 })
 export class InvoiceComponent implements OnInit {
 
+  public discount;
+  public discountadded;
+
   constructor(private service : AllServicesService) { }
 
   ngOnInit() {
@@ -22,6 +25,8 @@ export class InvoiceComponent implements OnInit {
   
   resetForm(form? : NgForm){
 
+    this.discountadded = '';
+    
     if(form != null){
       form.resetForm();
     }
@@ -69,17 +74,20 @@ export class InvoiceComponent implements OnInit {
     }
     
  }
-
  updatePrice(ctrl){
   if(ctrl.selectedIndex == 0){
     this.service.formDataItemB.Price = 0;
   }else{
     this.service.formDataItemB.Price = this.service.listItem[ctrl.selectedIndex - 1].Price;
-
   }
  }
 
  updateTotol(){
-  this.service.formDataItemB.Price = this.service.formDataItemB.Quanty * this.service.formDataItemB.Price;
+  this.service.formDataItemB.Price = (this.service.formDataItemB.Quanty * this.service.formDataItemB.Price) - (this.service.formDataItemB.Quanty * this.service.formDataItemB.Price) * this.discount/100;
+  this.discountadded = "Discount Added Price 😁"
+}
+
+ chechustomer(ctrl){
+  this.discount = this.service.list[ctrl.selectedIndex - 1].AllowDiscount;
  }
 }

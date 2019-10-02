@@ -1,15 +1,21 @@
 <style>
   button{
-    width: 180px;
+    width: 240px;
+    height: 50px;;
     margin-left: 20px;
+    border-radius: 30px;
   }
 
   button:hover{
-    width: 180px;
+    width: 280px;
+    height: 50px;
     margin-left: 20px;
     /* opacity: 0.6; */
     background-color: beige;
     color: black;
+    font-size: 18px;
+    transform: rotate(5deg);
+
   }
 
   h4{
@@ -17,18 +23,18 @@
   }
   
   body{
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    }
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
 </style>
 
 <body>
 <br>
-<h4 style="font-size: 80px;"> 🐱‍👤 </h4>
+<h4 style="font-size: 80px;"> 🐱‍👤 NinJa FOrT </h4>
 <hr>
 <div style="text-align : center;" class="container">
-  <button routerLink="/Customer" class="btn btn-primary"> ADD CUSTOMER</button>
-  <button routerLink="/items" class="btn btn-primary">ADD ITEMS</button>
-  <button routerLink="/invoice" class="btn btn-primary">BUY ITEMS</button>
+  <button routerLink="/Customer" class="btn btn-dark"> ADD CUSTOMER</button>
+  <button routerLink="/items" class="btn btn-dark">ADD ITEMS</button>
+  <button routerLink="/invoice" class="btn btn-dark">BUY ITEMS</button>
 </div>
 </body>
 <router-outlet></router-outlet>

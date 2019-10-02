@@ -1,20 +1,32 @@
 <style>
         tr:hover{
-            background-color:beige;
+            background-color:rgb(204, 204, 204);
         }
     
+        button{
+            border-radius: 30px;
+        }
+
         th{
-            background-color: aliceblue;
+            background-color:rgb(43, 43, 48);
+            color: white;
+        }
+
+        input:hover{
+            border-color: black;
         }
 
         button:hover{
             background-color: beige;
             color: black;
+            width: 180px;
+            transform: rotate(5deg);
+
         }
 
         body{
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    }
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
     </style>
     
     <body>
@@ -50,7 +62,7 @@
         </div>
     
         <div class="form-group">
-            <button class="btn btn-success" type="submit"  [disabled]="form.invalid">
+            <button class="btn btn-danger" type="submit"  [disabled]="form.invalid">
                     ✔  ADD ITEM
             </button>
         </div>
@@ -62,17 +74,17 @@
                 <h3>Customers Details</h3>
                             
                 <table class="table table-hover">
-                    <th>🧷 Item ID</th>
+                    <th>📌 Item ID</th>
                     <th>Item Name</th>
                     <th>Brand</th>
                     <th>Cost</th>
                     <th>Price</th>
                     <tr *ngFor="let items of service.listItem">
-                        <td>{{items.Item_Id}}</td>
+                        <td style="color: rgb(126, 2, 2);;text-align : center">{{items.Item_Id}}</td>
                         <td>{{items.ItemName}}</td>
                         <td>{{items.Brand}}</td>
                         <td>{{items.Cost}}</td>
-                        <td>{{items.Price}}</td>
+                        <td>{{items.Price}} Rs</td>
                     </tr>
                 </table>
         </div>
