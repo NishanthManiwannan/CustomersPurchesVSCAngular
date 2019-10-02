@@ -1,4 +1,7 @@
 <style>
+input.ng-touched.ng-invalid{
+          border-color: rgb(252, 57, 57);;
+        }
 
     tr:hover{
         background-color:rgb(204, 204, 204);
@@ -50,8 +53,20 @@
 
     <div class="form-group">
         <input name="Mobile" #Mobile="ngModel" [(ngModel)]="service.formData.Mobile" 
-        class="form-control" type="number" placeholder="Mobile" required>
+        class="form-control" type="number" placeholder="Mobile" required maxlength="10" minlength="10">
     </div>
+
+    <!-- <div class="form-group">
+            <input name="Mobile" #Mobile="ngModel" [(ngModel)]="service.formData.Mobile" 
+            pattern="^\d{10}$" 
+              [class.is-invalid]="Mobile.invalid && Mobile.touched"
+            class="form-control" type="number" placeholder="Mobile" required>
+    
+            <div *ngIf="Mobile.errors && (Mobile.invalid || Mobile.touched)">
+                    <small class="text-danger" *ngIf="Mobile.errors.required"></small>
+                    <small class="text-danger" *ngIf="Mobile.errors.pattern"><b>Mobile num must in 10 digits</b></small>
+                </div>
+        </div> -->
 
     <div class="form-group">
         <input name="AllowDiscount" type="number" #AllowDiscount="ngModel" [(ngModel)]="service.formData.AllowDiscount" class="form-control" 
