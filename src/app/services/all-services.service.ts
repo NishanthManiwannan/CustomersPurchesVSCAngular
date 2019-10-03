@@ -36,6 +36,10 @@ export class AllServicesService {
       .then(res => this.list = res as CustomersDetails[])
   }
 
+  deleteCustumer(id){
+    return this.http.delete(this.rootUrl+'/CustomerDetail/'+ id);
+  }
+
   //Items Details Post and get request
   postItemsDetails(formDataItem : ItemsDetails){
     return this.http.post(this.rootUrl+'/ItemsDetail',formDataItem)
@@ -45,6 +49,10 @@ export class AllServicesService {
     this.http.get(this.rootUrl+'/ItemsDetail')
       .toPromise()
       .then(res => this.listItem = res as ItemsDetails[])
+  }
+
+  deleteItems(id){
+    return this.http.delete(this.rootUrl+'/ItemsDetail/'+ id);
   }
 
   //Invoice Details Post and get request
@@ -58,6 +66,10 @@ export class AllServicesService {
       .then(res => this.listInvoice = res as Invoice[])
   }
 
+  deleteSingle(id){
+    return this.http.delete(this.rootUrl+'/Invoice/'+ id);
+  }
+
    //InvoicTwo Details Post and get request
    postItemBorrowdTwo(formDateItem : InvoiceTwo){
     return this.http.post(this.rootUrl+'/InvoicTwo',formDateItem)
@@ -69,4 +81,7 @@ export class AllServicesService {
       .then(res => this.listInvoiceTwo = res as InvoiceTwo[])
   }
   
+  deleteMulty(id){
+    return this.http.delete(this.rootUrl+'/InvoicTwo/'+ id);
+  }
 }

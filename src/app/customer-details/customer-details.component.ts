@@ -44,4 +44,12 @@ export class CustomerDetailsComponent implements OnInit {
     ) 
  }
 
+ delete(id){
+  this.service.deleteCustumer(id)
+  .subscribe(
+    ref => {
+      this.service.refreshList();
+    },err => {err})
+ }
+
 }

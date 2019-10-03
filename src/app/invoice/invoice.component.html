@@ -1,6 +1,7 @@
 <style>
         tr:hover{
             background-color:rgb(204, 204, 204);
+            
         }
 
         input.ng-touched.ng-invalid{
@@ -25,25 +26,20 @@
         }
 
         button:hover{
-            background-color: beige;
-            color: black;
-            width: 180px;
+            background-color: rgb(247, 247, 247);
+            color: rgb(233, 41, 41);
+            width: 250px;
             /* transform: rotate(5deg); */
         }
         body{
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         }
-
-        #sigle{
-           
-            margin-left: 55px;
-        }
     </style>
     
-    <body>
+    <body style="background-color: rgb(236, 236, 236)">
     <div class="container">
     <div class="row">
-        <div style="margin-right: 50px;" class="col-md-6">
+        <div style="margin-right: 50px;" class="col-md-7">
         <br>
         <h3>Order Items</h3>
     
@@ -84,7 +80,7 @@
     </form>
     </div>
 
-        <div id="duo" class="col-md-6.4">
+        <div id="duo" class="col-md-12">
 
         <br>
                 <h3>Multipul Items purchased Details</h3>
@@ -101,11 +97,13 @@
                         <td>{{pur.Item_Id}}</td>
                         <td>{{pur.Quanty}}</td>
                         <td style="color: goldenrod;text-align : center">{{pur.Price}} Rs</td>
+                        <td><i style="color: rgb(255, 0, 0); font-size: 30px;width: 28px;" (click)="deleteMul(pur.Invoice_Id)"><b>🗑</b></i></td>
+
                     </tr>
                 </table>
         </div>
 
-        <div id="sigle" class="col-md-5.5">
+        <div id="sigle" class="col-md-12">
                 <br>
                     <h3>Single Item purchased Details</h3>
                                 
@@ -117,10 +115,12 @@
                         <th>Price</th>
                         <tr *ngFor="let pur of service.listInvoice">
                             <td style="color: rgb(126, 2, 2);;text-align : center">{{pur.Invoice_Id}}</td>
-                            <td>{{pur.Customer_Id}}</td>
+                            <td >{{pur.Customer_Id}}</td>
                             <td>{{pur.Item_Id}}</td>
                             <td>{{pur.Quanty}}</td>
                             <td style="color: goldenrod;text-align : center">{{pur.Price}} Rs</td>
+                            <td><i style="color: rgb(255, 0, 0); font-size: 30px;width: 28px;" (click)="delete(pur.Invoice_Id)"><b>🗑</b></i></td>
+
                         </tr>
                     </table>
     

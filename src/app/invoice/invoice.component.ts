@@ -90,4 +90,20 @@ export class InvoiceComponent implements OnInit {
  chechustomer(ctrl){
   this.discount = this.service.list[ctrl.selectedIndex - 1].AllowDiscount;
  }
+
+ deleteMul(id){
+  this.service.deleteMulty(id)
+  .subscribe(
+    res => {this.service.refreshItemBarrowedDetailsTwo()},
+    err => {console.log(err)}
+    )
+ }
+
+ delete(id){
+  this.service.deleteSingle(id)
+  .subscribe(
+    res => {this.service.refreshItemBarrowedDetails()},
+    err => {console.log(err)}
+    )
+ }
 }

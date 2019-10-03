@@ -42,4 +42,13 @@ export class ItemsDetailsComponent implements OnInit {
     ) 
  }
 
+ delete(id){
+  this.service.deleteItems(id)
+  .subscribe(
+    ref => {
+      this.service.refreshItemDetails();
+    },err => {err})
+ }
+
+
 }

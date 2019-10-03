@@ -17,9 +17,9 @@
         }
 
         button:hover{
-            background-color: beige;
-            color: black;
-            width: 180px;
+            background-color: rgb(247, 247, 247);
+            color: rgb(233, 41, 41);
+            width: 250px;
             /* transform: rotate(5deg); */
 
         }
@@ -29,12 +29,12 @@
         }
     </style>
     
-    <body>
+    <body style="background-color: rgb(236, 236, 236)">
         
     
     <div class="container">
     <div class="row">
-            <div style="margin-right: 50px;" class="col-md-5">
+            <div style="margin-right: 50px;" class="col-md-7">
     <br>
     <h3>Add New Items</h3>
     
@@ -69,7 +69,7 @@
     </form>
     
     </div>
-        <div class="col-md-8">
+        <div class="col-md-12">
             <br>
                 <h3>Items Details</h3>
                             
@@ -83,8 +83,9 @@
                         <td style="color: rgb(126, 2, 2);;text-align : center">{{items.Item_Id}}</td>
                         <td>{{items.ItemName}}</td>
                         <td>{{items.Brand}}</td>
-                        <td>{{items.Cost}}</td>
+                        <td>{{items.Cost}} Rs</td>
                         <td>{{items.Price}} Rs</td>
+                        <td id="i"><i style="color: rgb(255, 0, 0); font-size: 30px;width: 28px;" (click)="delete(items.Item_Id)"><b>🗑</b></i></td>
                     </tr>
                 </table>
         </div>

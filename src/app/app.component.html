@@ -3,21 +3,26 @@
     width: 240px;
     height: 50px;;
     margin-left: 20px;
-    -ms-transform: skewY(3deg); /* IE 9 */
-  -webkit-transform: skewY(3deg); /* Safari 3-8 */
-  transform: skewY(3deg);
+    -webkit-transform: skewX(24deg);
+    transform: skewX(24deg);
+  }
+
+  img{
+    height: 100px;
+    width: 100px;
+    margin-top: -8px;
   }
 
   button:hover{
-    width: 280px;
+    width: 320px;
     height: 50px;
     margin-left: 20px;
     /* opacity: 0.6; */
-    background-color: beige;
-    color: black;
+    background-color: rgb(247, 247, 247);
+    color: rgb(233, 41, 41);
+    border-color: rgb(233, 41, 41);
     font-size: 18px;
-    transform: rotate(5deg);
-
+    transform: rotate(0deg);
   }
 
   h4{
@@ -29,10 +34,11 @@
   }
 </style>
 
-<body>
+<body style="background-color: rgb(236, 236, 236)">
 <br>
-<h4 style="font-size: 80px;"> 🐱‍👤 NinJa FOrT </h4>
+<h4 style="font-size: 80px;"><img src="../assets/img/ninja2.png"> NinJa TEch </h4>
 <hr>
+<br>
 <div style="text-align : center;" class="container">
   <button routerLink="/Customer" class="btn btn-dark"> ADD CUSTOMER</button>
   <button routerLink="/items" class="btn btn-dark">ADD ITEMS</button>
