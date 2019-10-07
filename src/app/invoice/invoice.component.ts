@@ -83,7 +83,8 @@ export class InvoiceComponent implements OnInit {
  }
 
  updateTotol(){
-  this.service.formDataItemB.Price = (this.service.formDataItemB.Quanty * this.service.formDataItemB.Price) - (this.service.formDataItemB.Quanty * this.service.formDataItemB.Price) * this.discount/100;
+  this.service.formDataItemB.Price = (this.service.formDataItemB.Quanty * this.service.formDataItemB.Price) 
+  - (this.service.formDataItemB.Quanty * this.service.formDataItemB.Price) * this.discount/100;
   this.discountadded = "Discount Added Price 😁"
 }
 

@@ -22,19 +22,26 @@ input.ng-touched.ng-invalid{
 
     body{
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        background-color: rgb(236, 236, 236)
     }
 
     input:hover{
-        border-color: black;
-    }
+            border-color: black;
+            width: 550px;
 
+        }
+
+        input{
+            width: 500px;
+        }
 </style>
 
-<body  style="background-color: rgb(236, 236, 236)">
-    
+<body>
+        <br>
+ 
 <div class="container">
 <div class="row">
-    <div style="margin-right: 50px;" class="col-md-7">
+    <div style="background-color: whitesmoke" class="col-md-12">
 <br>
 <h3>Add New Customer</h3>
 
@@ -87,7 +94,8 @@ input.ng-touched.ng-invalid{
 </form>
 
 </div>
-    <div class="col-md-12">
+
+    <div class="col-md-12" style="background-color: whitesmoke;margin-top: 10px;">
         <br>
             <h3>Customers Details</h3>
                         
@@ -98,6 +106,8 @@ input.ng-touched.ng-invalid{
                 <th>Mobile No</th>
                 <th>Discount</th>
                 <th>Credit</th>
+                <th>Delete</th>
+
                 <tr *ngFor="let customers of service.list">
                     <td style="color: rgb(126, 2, 2);text-align : center">{{customers.Customer_Id}}</td>
                     <td>{{customers.Customer_Name}}</td>

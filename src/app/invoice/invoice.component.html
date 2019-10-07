@@ -1,7 +1,6 @@
 <style>
         tr:hover{
-            background-color:rgb(204, 204, 204);
-            
+            background-color:rgb(204, 204, 204);   
         }
 
         input.ng-touched.ng-invalid{
@@ -19,10 +18,22 @@
 
         input:hover{
             border-color: black;
+            width: 550px;
+
+        }
+
+        input{
+            width: 500px;
+        }
+
+        select{
+            width: 500px;
         }
 
         select:hover{
             border-color: black;
+            width: 550px;
+
         }
 
         button:hover{
@@ -31,15 +42,20 @@
             width: 250px;
             /* transform: rotate(5deg); */
         }
+
         body{
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         }
+
+        input{
+            width: 500px;
+        }
     </style>
-    
+    <br>
     <body style="background-color: rgb(236, 236, 236)">
     <div class="container">
     <div class="row">
-        <div style="margin-right: 50px;" class="col-md-7">
+        <div style="background-color: whitesmoke;" class="col-md-12">
         <br>
         <h3>Order Items</h3>
     
@@ -80,7 +96,7 @@
     </form>
     </div>
 
-        <div id="duo" class="col-md-12">
+        <div id="duo" style="background-color: whitesmoke; margin-top: 10px" class="col-md-12">
 
         <br>
                 <h3>Multipul Items purchased Details</h3>
@@ -91,19 +107,20 @@
                     <th>Item </th>
                     <th>Quantity</th>
                     <th>Price</th>
+                    <th>Delete</th>
                     <tr *ngFor="let pur of service.listInvoiceTwo">
                         <td style="color: rgb(126, 2, 2);;text-align : center">{{pur.Invoice_Id}}</td>
                         <td>{{pur.Customer_Id}}</td>
                         <td>{{pur.Item_Id}}</td>
                         <td>{{pur.Quanty}}</td>
-                        <td style="color: goldenrod;text-align : center">{{pur.Price}} Rs</td>
+                        <td style="color: goldenrod">{{pur.Price}} Rs</td>
                         <td><i style="color: rgb(255, 0, 0); font-size: 30px;width: 28px;" (click)="deleteMul(pur.Invoice_Id)"><b>🗑</b></i></td>
 
                     </tr>
                 </table>
         </div>
 
-        <div id="sigle" class="col-md-12">
+        <div id="sigle" style="background-color: whitesmoke; margin-top: 10px" class="col-md-12">
                 <br>
                     <h3>Single Item purchased Details</h3>
                                 
@@ -113,12 +130,13 @@
                         <th>Item</th>
                         <th>Quantity</th>
                         <th>Price</th>
+                        <th>Delete</th>
                         <tr *ngFor="let pur of service.listInvoice">
                             <td style="color: rgb(126, 2, 2);;text-align : center">{{pur.Invoice_Id}}</td>
                             <td >{{pur.Customer_Id}}</td>
                             <td>{{pur.Item_Id}}</td>
                             <td>{{pur.Quanty}}</td>
-                            <td style="color: goldenrod;text-align : center">{{pur.Price}} Rs</td>
+                            <td style="color: goldenrod;">{{pur.Price}} Rs</td>
                             <td><i style="color: rgb(255, 0, 0); font-size: 30px;width: 28px;" (click)="delete(pur.Invoice_Id)"><b>🗑</b></i></td>
 
                         </tr>
